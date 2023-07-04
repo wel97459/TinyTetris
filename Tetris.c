@@ -369,3 +369,8 @@ void tetris_clearBoard(Tetris *t){
 		t->board[i] = 0x11;
 	}
 }
+
+void tetris_get_ghost(Tetris *t)
+{
+
+}

@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include "Tetris.h"
 
-uint16_t randnum=0;
+uint16_t randnum=0x2cf6;
 
 void tetris_randomSeed(uint16_t s)
 {
@@ -73,7 +73,7 @@ void tetris_tick(Tetris *t)
 		T.ticks++;
 
 	isTicked = T.ticks > T.speed;
-	if (isTicked || T.move > 0 || T.das && !T.gameover && !T.pause)
+	if((isTicked || T.move > 0 || T.das) && (!T.gameover && !T.pause))
 	{
 
 		//Reset the hold on fall
@@ -176,7 +176,7 @@ void tetris_tick(Tetris *t)
 	{
 		T.pause = !T.pause;
 	}
-
+	
 	T.moveLast = T.move;
 }
 
